@@ -88,9 +88,9 @@
 <li><p>sudo -u postgres -i</p></li>
 </ol>
 
-<p>createuser -s <username></p>
+<p>           createuser -s <username></p>
 
-<p>exit</p>
+<p>           exit</p>
 
 <ol>
 <li><p>bundle exec rake db:create</p></li>
@@ -105,13 +105,13 @@
 <li><p>cd ../..</p></li>
 
 
-<li><p>psql -d openstreetmap -c "CREATE FUNCTION maptile<em>for</em>point(int8, int8, int4) RETURNS int4 AS '<code>pwd</code>/db/functions/libpgosm', 'maptile<em>for</em>point' LANGUAGE C STRICT"</p></li>
+<li><p>psql -d openstreetmap -c "CREATE FUNCTION maptileforpoint(int8, int8, int4) RETURNS int4 AS '<code>pwd</code>/db/functions/libpgosm', 'maptile<em>for</em>point' LANGUAGE C STRICT"</p></li>
 
 
-<li><p>psql -d openstreetmap -c "CREATE FUNCTION tile<em>for</em>point(int4, int4) RETURNS int8 AS '<code>pwd</code>/db/functions/libpgosm', 'tile<em>for</em>point' LANGUAGE C STRICT"</p></li>
+<li><p>psql -d openstreetmap -c "CREATE FUNCTION tileforpoint(int4, int4) RETURNS int8 AS '<code>pwd</code>/db/functions/libpgosm', 'tile<em>for</em>point' LANGUAGE C STRICT"</p></li>
 
 
-<li><p>psql -d openstreetmap -c "CREATE FUNCTION xid<em>to</em>int4(xid) RETURNS int4 AS '<code>pwd</code>/db/functions/libpgosm', 'xid<em>to</em>int4' LANGUAGE C STRICT"</p></li>
+<li><p>psql -d openstreetmap -c "CREATE FUNCTION xidtoint4(xid) RETURNS int4 AS '<code>pwd</code>/db/functions/libpgosm', 'xid<em>to</em>int4' LANGUAGE C STRICT"</p></li>
 
 
 <li><p>bundle exec rake db:migrate</p></li>
