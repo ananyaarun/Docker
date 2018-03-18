@@ -5,7 +5,7 @@
 
 <p>Install docker-ce direct from the repository. When I did a sudo apt-get install docker, I got a lot of issues with environment settings like DOCKER_HOST.</p>
 
-<p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Link</a></p>
+<p><a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Instructions to install docker-ce</a></p>
 
 <h2 id="setupcommands">Setup Commands</h2>
 
@@ -18,17 +18,11 @@
 
 <li><p>sudo apt-key fingerprint 0EBFCD88</p></li>
 
-<li><p>sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \</p>
-
-<p>$(lsb_release -cs) \</p>
-
-<p>stable"</p></li>
-
+<li><p>sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</p></li>
 
 <li><p>sudo apt-get update</p></li>
 
 <li><p>sudo apt-get install docker-ce</p></li>
-
 
 <li><p>sudo docker run hello-world</p></li>
 </ol>
@@ -47,56 +41,34 @@
 
 <p>Test this by running docker without sudo</p>
 
-<ol>
-<li>docker run hello-world</li>
-</ol>
+<p> docker run hello-world</p>
+
 
 <h2 id="serverinstall">Server Install</h2>
 
-<p><a href="https://github.com/openstreetmap/openstreetmap-website/blob/master/INSTALL.md">Link</a></p>
+<p><a href="https://github.com/openstreetmap/openstreetmap-website/blob/master/INSTALL.md">Link to Server Install</a></p>
 
 <ol>
-<li><p>sudo apt-get install ruby2.3 libruby2.3 ruby2.3-dev \</p>
-
-<pre><code>             libmagickwand-dev libxml2-dev libxslt1-dev nodejs \<pre><code>         apache2 apache2-dev build-essential git-core \
-
-         postgresql postgresql-contrib libpq-dev postgresql-server-dev-all \
-
-         libsasl2-dev imagemagick libffi-dev
-</code></pre></code></pre></li>
+<li><p>sudo apt-get install ruby2.3 libruby2.3 ruby2.3-dev libmagickwand-dev libxml2-dev libxslt1-dev nodejs apache2 apache2-dev build-essential git-core postgresql postgresql-contrib libpq-dev postgresql-server-dev-all libsasl2-dev imagemagick libffi-dev
 
 <li><p>sudo gem2.3 install bundler</p></li>
 
-
-
-
 <li><p>git clone https://github.com/openstreetmap/openstreetmap-website.git</p></li>
-
 
 <li><p>cd openstreetmap-website</p></li>
 
 <li><p>bundle install</p></li>
 
-
-
-
 <li><p>cp config/example.application.yml config/application.yml</p></li>
 
 <li><p>cp config/example.database.yml config/database.yml</p></li>
 
+<li><p>sudo -u postgres -i </p>
+<p>In postgres prompt createuser -s <username> and exit </p></li>
 
-<li><p>sudo -u postgres -i</p></li>
-</ol>
-
-<p>  <pre><code>         createuser -s <username></p>
-
-          exit</p>  </code></pre>
-
-<ol>
 <li><p>bundle exec rake db:create</p></li>
 
 <li><p>psql -d openstreetmap -c "CREATE EXTENSION btree_gist"</p></li>
-
 
 <li><p>cd db/functions</p></li>
 
@@ -120,7 +92,7 @@
 <li><p>bundle exec rails server</p></li>
 </ol>
 
-<p>You can now view the site in your favorite web-browser at <a href="http://localhost:3000/">Link</a></p>
+<p>You can now view the site in your favorite web-browser at <a href="http://localhost:3000/">http://localhost:3000</a></p>
 
 <h2 id="vectorfiles">Vector files</h2>
 
@@ -139,12 +111,12 @@
 
 <li><p>cd ./openmaptiles/</p></li>
 
-<li><p>./quickstart.sh</p></li>
+<li><p> ./quickstart.sh</p></li>
 </ol>
 
 <p>After tweaking the configuration files you can point your favorite web-browser at 
 
-<a href="http://localhost:3000/">Link</a> to see the maps</p>
+<a href="http://localhost:3000/">http://localhost:3000</a> to see the maps</p>
 
          
 </body>
